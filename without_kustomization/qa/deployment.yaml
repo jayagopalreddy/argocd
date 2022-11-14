@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qa-my-app
+spec:
+  selector:
+    matchLabels:
+      app: qa-my-app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: qa-my-app
+    spec:
+      containers:
+      - name: qa-my-app
+        image: hashicorp/http-echo
+        args:
+        - "-text=version 1-0-0"
+        ports:
+        - containerPort: 5678
