@@ -11,7 +11,7 @@ resources:
 #   - ../../variants/non-prod
 
 patchesStrategicMerge:
-- deployment.yml
-# - version.yml
+- version.yml
+# - deployment.yml
 # - settings.yml
 
