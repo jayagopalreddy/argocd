@@ -2,10 +2,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: simple-deployment
+  name: my-app
 spec:
   template:
     spec:
       containers:
-      - name: webserver-simple
-        image: docker.io/kostiscodefresh/simple-env-app:1.0
+      - name: my-app
+        image: hashicorp/http-echo
+        args:
+        - "-text=version 1-0-0"
