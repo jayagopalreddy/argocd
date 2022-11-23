@@ -7,13 +7,17 @@ spec:
   project: default
   
   source:
+  source:
+    helm:
+      valueFiles:
+        - helm/sample-app/env/qa/values_qa.yaml
+    path: helm/sample-app
     repoURL: git@github.com:jayagopalreddy/argocd.git
     targetRevision: HEAD
-    path: sample-app/templates/env/qa/
   
   destination: 
     server: https://kubernetes.default.svc
-    namespace: qa-my-app
+    namespace: qa-receiver
 
   syncPolicy:
     syncOptions:
