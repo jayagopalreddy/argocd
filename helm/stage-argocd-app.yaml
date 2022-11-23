@@ -7,13 +7,16 @@ spec:
   project: default
   
   source:
+    helm:
+      valueFiles:
+        - helm/sample-app/env/stage/values_stage.yaml
+    path: helm/sample-app
     repoURL: git@github.com:jayagopalreddy/argocd.git
     targetRevision: HEAD
-    path: sample-app/templates/env/stage/
   
   destination: 
     server: https://kubernetes.default.svc
-    namespace: stage-my-app
+    namespace: stage-receiver
 
   syncPolicy:
     syncOptions:
