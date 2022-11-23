@@ -1,14 +1,17 @@
-# Default values for sample-app.
+# Default values for test-app.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+app: receiver
 replicaCount: 1
+REGION: us-west-2
+TAG_NAME: qa
 
 image:
   repository: nginx
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "1.21.3"
 
 imagePullSecrets: []
 nameOverride: ""
