@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: git@github.com:jayagopalreddy/argocd.git
     targetRevision: HEAD
-    path: kustomization/env/stage
+    path: sample-app/templates/env/stage/
   
   destination: 
     server: https://kubernetes.default.svc
