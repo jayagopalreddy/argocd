@@ -7,13 +7,16 @@ spec:
   project: default
   
   source:
+    helm:
+      valueFiles:
+        - helm/sample-app/env/prod/values_prod.yaml
+    path: helm/sample-app
     repoURL: git@github.com:jayagopalreddy/argocd.git
     targetRevision: HEAD
-    path: sample-app/templates/env/prod/
   
   destination: 
     server: https://kubernetes.default.svc
-    namespace: prod-my-app
+    namespace: prod-receiver
 
   syncPolicy:
     syncOptions:
