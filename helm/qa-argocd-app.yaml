@@ -7,7 +7,6 @@ spec:
   project: default
   
   source:
-  source:
     helm:
       valueFiles:
         - helm/sample-app/env/qa/values_qa.yaml
