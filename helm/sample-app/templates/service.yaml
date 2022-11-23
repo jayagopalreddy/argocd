@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: prod-my-app-svc
+spec:
+  selector:
+    app: prod-my-app
+  type: NodePort
+  ports:
+  - port: 9000
+    nodePort: 31000
+    protocol: TCP
+    targetPort: 5678
+
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: {{ include "sample-app.fullname" . }}
+#   labels:
+#     {{- include "sample-app.labels" . | nindent 4 }}
+# spec:
+#   type: {{ .Values.service.type }}
+#   ports:
+#     - port: {{ .Values.service.port }}
+#       targetPort: http
+#       protocol: TCP
+#       name: http
+#   selector:
+#     {{- include "sample-app.selectorLabels" . | nindent 4 }}
