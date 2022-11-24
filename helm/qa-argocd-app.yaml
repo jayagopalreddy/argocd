@@ -9,7 +9,7 @@ spec:
   source:
     helm:
       valueFiles:
-        - helm/sample-app/env/qa/values_qa.yaml
+        - env/qa/values_qa.yaml
     path: helm/sample-app
     repoURL: git@github.com:jayagopalreddy/argocd.git
     targetRevision: HEAD
