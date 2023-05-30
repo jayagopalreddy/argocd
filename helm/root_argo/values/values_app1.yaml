@@ -1,4 +1,4 @@
-name: receiver
+name: app1
 namespace: qalatest
 server: https://kubernetes.default.svc
 targetRevision: HEAD
