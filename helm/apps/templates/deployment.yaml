@@ -1,1 +1,57 @@
-wea
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ .Values.TAG_NAME }}-{{ .Values.app }}-deployment"
+  labels:
+    app: {{ .Values.app }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.app }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.app }}
+    spec:
+      containers:
+        - name: {{ .Values.app }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+          - name: GREETING
+            value: "Hello from the environment"
+          - name: FAREWELL
+            value: "Such a sweet sorrow"
+          - name: REGION
+            value: {{ .Values.REGION }}
+          - name: TAG_NAME
+            value: {{ .Values.TAG_NAME }}
+          command: ["echo"]
+          args: ["$(GREETING) $(FAREWELL) $(TAG_NAME)"]
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
