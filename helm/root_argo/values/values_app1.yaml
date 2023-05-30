@@ -1,0 +1,6 @@
+name: receiver
+namespace: qalatest
+server: https://kubernetes.default.svc
+targetRevision: HEAD
+path: helm/sample-app
+valueFile: env/stage/values_stage.yaml
