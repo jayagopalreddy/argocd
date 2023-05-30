@@ -3,7 +3,7 @@
 # Declare variables to be passed into your templates.
 
 app: receiver
-replicaCount: 1
+replicaCount: 5
 REGION: us-west-2
 TAG_NAME: stage
 
