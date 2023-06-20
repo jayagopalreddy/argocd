@@ -5,23 +5,15 @@ metadata:
   namespace: argocd
 spec:
   project: default
-  
+  {{- with .Values.source }}
   source:
-    helm:
-      valueFiles:
-        - {{ .Values.valueFile }}
-    path: {{ .Values.path }}
-    repoURL: git@github.com:jayagopalreddy/argocd.git
-    targetRevision: {{ .Values.targetRevision }}
-  
-  destination: 
-    server: {{ .Values.server }}
-    namespace: {{ .Values.namespace }}
-
+    {{- toYaml . | nindent 8 }}
+  {{- end }}
+  {{- with .Values.destination }}
+  destination:
+    {{- toYaml . | nindent 8 }}
+  {{- end }}
+  {{- with .Values.syncPolicy }}
   syncPolicy:
-    syncOptions:
-    - CreateNamespace=true
-
-    automated:
-      selfHeal: true
-      prune: true
+    {{- toYaml . | nindent 8 }}
+  {{- end }}
