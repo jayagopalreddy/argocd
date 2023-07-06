@@ -1,19 +1,4 @@
+repoURL: git@github.com:jayagopalreddy/argocd.git
+server: https://kubernetes.default.svc
+namespace: app2
 name: app2
-source:
-  helm:
-    valueFiles:
-      - env/qa/values_qa.yaml
-    path: helm/sample-app
-    repoURL: git@github.com:jayagopalreddy/argocd.git
-    targetRevision: HEAD
-
-destination:
-  server: https://kubernetes.default.svc
-  namespace: qalatest
-
-syncPolicy:
-    syncOptions:
-    - CreateNamespace=true
-    automated:
-      selfHeal: true
-      prune: true

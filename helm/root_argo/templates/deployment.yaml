@@ -5,15 +5,23 @@ metadata:
   namespace: argocd
 spec:
   project: default
-  {{- with .Values.source }}
+
   source:
-    {{- toYaml . | nindent 8 }}
-  {{- end }}
-  {{- with .Values.destination }}
-  destination:
-    {{- toYaml . | nindent 8 }}
-  {{- end }}
-  {{- with .Values.syncPolicy }}
+    helm:
+      valueFiles:
+        - env/app1/values_app1.yaml
+    path: helm/nginx
+    repoURL: {{ .Values.repoURL }}
+    targetRevision: HEAD
+  
+  destination: 
+    server: {{ .Values.server }}
+    namespace: {{ .Values.namespace }}
+
   syncPolicy:
-    {{- toYaml . | nindent 8 }}
-  {{- end }}
+    syncOptions:
+    - CreateNamespace=true
+
+    automated:
+      selfHeal: true
+      prune: true
