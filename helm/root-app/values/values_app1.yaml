@@ -1,0 +1,4 @@
+repoURL: git@github.com:jayagopalreddy/argocd.git
+server: https://kubernetes.default.svc
+namespace: qa
+name: qa
