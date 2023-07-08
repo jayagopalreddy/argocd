@@ -9,8 +9,8 @@ spec:
   source:
     helm:
       valueFiles:
-        - env/qa/values_qa.yaml
-    path: helm/sample-app
+        - values_$ARGOCD_APP_NAMESPACE.yaml
+    path: {{ .Values.path }}
     repoURL: {{ .Values.repoURL }}
     targetRevision: HEAD
   
