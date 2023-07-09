@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: root-application
+spec:
+  generators:
+  - list:
+      elements:
+      - cluster: prod
+        url: values_prod.yaml
+      - cluster: qa
+        url: values_qa.yaml
+  template:
+    metadata:
+      name: '{{cluster}}'
+    spec:
+      project: default
+      source:
+        helm:
+        valueFiles:
+          - values_{{cluster}}.yaml
+        repoURL: git@github.com:jayagopalreddy/argocd.git
+        targetRevision: HEAD
+        path: helm/sample-app/env/{{cluster}}
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: {{cluster}}

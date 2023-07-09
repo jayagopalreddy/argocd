@@ -1,29 +1,27 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: root-app
+  name: {{ .Values.name }}
   namespace: argocd
-  labels:
-    cluster: root
 spec:
   project: default
-  
+
   source:
     helm:
       valueFiles:
-        - values/values_app1.yaml
-        - values/values_app2.yaml
-    path: helm/root-app
-    repoURL: git@github.com:jayagopalreddy/argocd.git
+        - values.yaml
+    path: {{ .Values.path }}
+    repoURL: {{ .Values.repoURL }}
     targetRevision: HEAD
   
   destination: 
-    server: https://kubernetes.default.svc
-    namespace: argocd
+    server: {{ .Values.server }}
+    namespace: {{ .Values.namespace }}
 
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
+
     automated:
       selfHeal: true
       prune: true
