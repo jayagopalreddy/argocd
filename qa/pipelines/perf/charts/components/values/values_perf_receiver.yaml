@@ -1,8 +1,0 @@
-name: receiver
-namespace: perf
-app: receiver
-replicaCount: 1
-version: version 4-0-0
-service:
-  type: ClusterIP
-  port: 8002

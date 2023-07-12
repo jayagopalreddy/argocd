@@ -1,5 +1,0 @@
-repoURL: git@github.com:jayagopalreddy/argocd.git
-server: https://kubernetes.default.svc
-namespace: prod
-name: prod
-path: helm/sample-app/env/prod

@@ -1,5 +1,0 @@
-name: awsinfra
-path: qa/pipelines/awsinfra
-repoURL: git@github.com:jayagopalreddy/argocd.git
-server: https://kubernetes.default.svc
-namespace: awsinfra

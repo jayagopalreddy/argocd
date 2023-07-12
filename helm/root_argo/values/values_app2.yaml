@@ -1,4 +1,0 @@
-repoURL: git@github.com:jayagopalreddy/argocd.git
-server: https://kubernetes.default.svc
-namespace: app2
-name: app2

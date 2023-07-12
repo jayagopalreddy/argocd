@@ -5,9 +5,9 @@ metadata:
 spec:
   selector:
     app: {{ .Values.app }}
-  type: {{ .Values.service.type }}
+  type: ClusterIP
   ports:
-    - port: {{ .Values.service.port }}
+    - port: 80
       targetPort: http
       protocol: TCP
       name: http

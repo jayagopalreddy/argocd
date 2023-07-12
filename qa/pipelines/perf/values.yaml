@@ -1,5 +1,0 @@
-name: perf
-path: qa/pipelines/perf
-repoURL: git@github.com:jayagopalreddy/argocd.git
-server: https://kubernetes.default.svc
-namespace: perf
