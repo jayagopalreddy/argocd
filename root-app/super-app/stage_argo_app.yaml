@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: git@github.com:jayagopalreddy/argocd.git
     targetRevision: main
-    path: pipelines/stage
+    path: root-app/pipelines/stage
   
   destination: 
     server: https://kubernetes.default.svc

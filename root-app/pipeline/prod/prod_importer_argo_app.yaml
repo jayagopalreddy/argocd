@@ -10,7 +10,7 @@ spec:
     helm:
       valueFiles:
         - env/prod/values_importer_prod.yaml
-    path: components/importer/
+    path: root-app/components/importer/
     repoURL: git@github.com:jayagopalreddy/argocd.git
     targetRevision: main
   

@@ -10,7 +10,7 @@ spec:
     helm:
       valueFiles:
         - env/stage/values_receiver_stage.yaml
-    path: components/receiver/
+    path: root-app/components/receiver/
     repoURL: git@github.com:jayagopalreddy/argocd.git
     targetRevision: main
   
