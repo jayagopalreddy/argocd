@@ -1,0 +1,3 @@
+app: importer
+namespace: stage
+replicaCount: 1

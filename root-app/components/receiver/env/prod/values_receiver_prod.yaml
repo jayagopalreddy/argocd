@@ -1,0 +1,3 @@
+app: receiver
+namespace: prod
+replicaCount: 1
