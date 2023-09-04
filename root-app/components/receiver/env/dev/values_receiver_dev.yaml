@@ -1,3 +1,4 @@
 app: receiver
 namespace: dev
 replicaCount: 1
+nodePort: 3133

@@ -1,3 +1,4 @@
 app: importer
 namespace: stage
 replicaCount: 1
+nodePort: 3122

@@ -1,3 +1,4 @@
 app: importer
 namespace: prod
 replicaCount: 1
+nodePort: 3111

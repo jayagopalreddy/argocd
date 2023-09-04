@@ -1,3 +1,4 @@
 app: receiver
 namespace: prod
 replicaCount: 1
+nodePort: 3144
